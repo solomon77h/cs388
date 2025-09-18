@@ -1,0 +1,60 @@
+Commands, password + Reflection
+
+LEVEL 0 -> 1: 
+cat readme 
+password unlocked: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+Reflection: Cat command is used to print stdout of file, can be useful if you don't have the ability to open a file in an editor.
+LEVEL 1 -> 2: 
+cat ./- 
+password unlocked: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+Reflection: When reading the contents of a file named dash (-), you need to include a ./ infront of it.
+
+LEVEL 2 -> 3:
+cat ./"--spaces in this filename--" 
+password unlocked: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+Reflection: When reading the contents of a file with spaces, you need to put quotes around it.
+
+LEVEL 3 -> 4:
+ls -> cd inhere -> find  -> cat ...Hiding-From-You
+password unlocked: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+Reflection: When trying to find a file that is hidden, the find command is really useful and helpful as it displays all file names- even if hidden.
+
+LEVEL 4 -> 5:
+cd inhere -> ls -> cat ./-file07
+password unlocked: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+Reflection: When orginally trying to find the password, I printed out the contents of every file. But after searching on internet, there is a command file ./* that is really useful which returns the type for all the files. This could have been easily used to find which file.
+
+LEVEL 5 -> 6:
+cd inhere -> find . -type f -size 1033c -> cat ./maybehere07/.file2
+password unlocked: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG 
+
+LEVEL 6 -> 7:
+ls -> find / -type f -user bandit7 -group bandit6 -size 33c -> cat /var/lib/dpkg/info/bandit7.password
+password unlocked: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+Reflection for 5 -> 6 and 6 -> 7: The find command can be really helpful for finding various types of files using various arguments. There are probably more arguments that exist and would be useful to learn more about.
+
+LEVEL 7 -> 8:
+cat data.txt| grep millionth
+password unlocked: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+Reflection: The grep command is very useful when trying to find the lines that match a specific pattern.
+
+LEVEL 8 -> 9:
+sort data.txt | uniq -u
+password unlocked: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+Reflection:
+Reflection: The uniq -u finds the unique line of text and is often used with the sorted command. This could be really heplful if you're looking for a line that only occurs once in a file.
+
+LEVEL 9 -> 10:
+strings data.txt | grep =
+password unlocked: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+Reflection: The sort command line sorts the text line files while grep searches for the given word in the file and returns the lines where the word is found.
+
+LEVEL 10 -> 11:
+base64 data.txt
+password unlocked: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+Reflection: Base64 command is used to read base64 encoded data and turn it into text.
+
+LEVEL 11 -> 12:
+cat data.txt | tr "a-zA-Z" "n-za-mN-ZA-M"
+password unlocked: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+Reflection: I learned about a new cipher - ROT13 which is a letter substitution ciipher which rotats each alphabet 13 characters. The command tr has a function to replace old characters with other ones. You must print the output first using cat and then translate. 
