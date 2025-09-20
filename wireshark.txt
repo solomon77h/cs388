@@ -1,0 +1,35 @@
+Helana Solomon
+
+===== DAYTIME =====
+1. TCP Handshake
+    1 First part of the TCP 3-way handshake - Hey can we talk?
+       1 192.168.136.128	129.6.15.29	TCP	74	60038 → 13 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM TSval=2570723559 TSecr=0 WS=128
+    2 Second part of the TCP 3-way handshake - Yes let's talk, I got your message
+       5 129.6.15.29	192.168.136.128	TCP	60	13 → 60038 [SYN, ACK] Seq=0 Ack=1 Win=64240 Len=0 MSS=1460
+    3. Third part of the TCP 3-way handshake - I got your reply
+       6 192.168.136.128	129.6.15.29	TCP	54	60038 → 13 [ACK] Seq=1 Ack=1 Win=64240 Len=0
+
+2. The client uses port 13 for this interaction.
+3. The client needs this port to communicate to the right server and makes sure that the packets reach the right server, the server the client is trying to communicate to.
+4. Frame: 7 129.6.15.29	192.168.136.128	DAYTIME	105	DAYTIME Response
+5. [SYN] means sychronization and this packet is sent first by the client to tell the server they want to initaize a connection. [ACK] means acknowledged and it is sent to tell the server or client (depending on who is sending the packet) that their message has been recieved.
+6. The nc client initiated the closing of the TCP connection. After recieving the DAYTIME response, the client initates the closing of the TCP connection by sending a [FIN][ACK] packet to the daytime server. The Frame: 8 192.168.136.128	129.6.15.29	TCP	54	60038 → 13 [FIN, ACK] Seq=1 Ack=53 Win=64188 Len=0. Afterwards, the daytime server acknowledges that it recieved the finish command. 
+
+=== HTTP ===
+
+1. I believe 2 TCP connections were established. The client sends to [SYN] packets to initalize 2 commmunication pathways to cs388.jeffondich.com (server). Then the server responds with a [SYN][ACK] to acknowledge the response was recieved. Following this the client responds with an [ACK] packet to acknowledge the servers connection. But the last two steps occur twice meaning there was another [SYN][ACk] and [ACK] packet send afterwards, meaning two TCP connections were opened. 
+
+2. Yes, the homepage was requested after the two TCP connections were opened.
+7	0.016073033	192.168.136.128	172.233.221.124	HTTP	404	GET /index.html HTTP/1.1 
+
+3. Yes, the photography was requested after the homepage was sent and recieved by the client. 
+11	0.143052017	192.168.136.128	172.233.221.124	HTTP	443	GET /jeff-square-colorado.jpg HTTP/1.1 
+
+=== QUESTIONS ====
+1. When experimenting with the HTTP site after the client sends the request for the maisie-jeff.jpg, the website acknowledges that it recieves the request but then sends multiple [PSH, ACK] packs similar to the one shown below. What does the [PSH] mean? Is it sent in this format because the image was broken down into different packets and sent to the client in multiple packets?
+
+15	0.165505640	172.233.221.124	192.168.136.128	TCP	1436	80 → 55680 [PSH, ACK] Seq=614 Ack=736 Win=64240 Len=1382 [TCP PDU reassembled in 149]
+
+
+2. What does [TCP Keep-Alive] mean? An example frame is below:
+156	10.354265235	192.168.136.128	172.233.221.124	TCP	54	[TCP Keep-Alive] 55664 → 80 [ACK] Seq=762 Ack=539946 Win=65535 Len=0
