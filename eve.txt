@@ -1,0 +1,51 @@
+Helana Solomon
+
+=== DIFFIE HELLMAN ===
+
+
+1. The shared key value is 31. This is the algorithm I used to help solve the diffie-helman problem. I first found the private keys for Alice and Bob by brute forcing all the numbers up until 103, the value of p, since their private keys should not be greateer than 103. After I found the value of a and b that would lead to Alice and Bob having the same value as each other (which is the shared  key), I made sure the a and b values matched up with the public values Bob and Alice agreed on originally sent each other by calculating the public numbers sent. 
+
+2. This would not work with big integers becase the larger numbers makes the computation more difficult to actually compute the numbers needed. There could be a number of pairs that create the key but the computation would take too long to actually find. It probably would have failed in the for loop(s) because it would run for a very long time and maybe at some point timeout and never actually find the shared key.
+
+def diffie_hellman():
+    for a in range(0, 103):
+        for b in range(0, 103):
+            a_second = (10**b) % 103 # bob calculating based on the number alice sent
+            b_first = (71**a) % 103 # alice calculating based on the number bob sent
+
+            power_of = a * b
+            shared_key = (5**power_of) % 103 # calculating the shared value
+            if b_first == a_second and shared_key == b_first: # making sure alice and bob recieve the same shared value
+                sent_valA = (5**a) % 103
+                sent_valB = (5**b) % 103
+                if sent_valA == 10 and sent_valB == 71: # making sure the private a and b values actually compute to the values sent by alice and bob
+                    print(a, b, shared_key) # just printing a, b and the shared key
+
+
+diffie_hellman()
+
+
+
+=== RSA ===
+
+1. I couldn't figure out the plain text message while decoding the problem. But I followed the steps on the lab to find d_Bob given e_Bob and n_Bob. I first found the two prime numbers that led to n_Bob which is 607 and 439. Then I found the lcm of 607 and 439 by calculating (606 * 438) / gcd(606, 438) = 44238. Then I found bob's private key, d by looping through all the values less than 226473 and until it matched the condition ed % lcm(606, 438) == 1. This means I found the value of d bob uses to decrypt the messages. Then I went through each value number in the encrypted_message and decrypted the message using the pow function to take the enecrypted_message ^ d % n_bob. But, after this point I couldn't figure out how to decrypt the message into plain text.
+
+2. This would not work for large integers because the numbers there would be too many numbers that to look through to find the value of d. So it would ultimately fail during that case. 
+
+3. The encoding is insecure of RSA because the values used to encrypt and decrypt the message can be easily calculated whereas other encryption methods use other forms of random padding that can protect the message they're trying to send.
+
+
+val = 0
+for d in range(226473):
+    if (17 * d) % 44238 == 1:
+        val = d
+        break
+decrypted_message = []
+for new in range(len(encrypted_message)):
+    val2 = pow(encrypted_message[new], val, 266473)
+    decrypted_message.append(val2)
+
+print(decrypted_message)
+
+My output:
+[18533, 31008, 17007, 25132, 8296, 25970, 25895, 29472, 29551, 28005, 8291, 29305, 28788, 28519, 29281, 28776, 31008, 26729, 29556, 28530, 31008, 26223, 29216, 31087, 29984, 10344, 29812, 28787, 14895, 12133, 28206, 30569, 27497, 28773, 25705, 24878, 28530, 26415, 30569, 27497, 12116, 26725, 24397, 24935, 26979, 24407, 28530, 25715, 24417, 29285, 24403, 29045, 25953, 28009, 29544, 24399, 29555, 26982, 29281, 26469, 10542, 8264, 24944, 28793, 8294, 24931, 29807, 29289, 28263, 11296, 16748, 26979, 25902]
