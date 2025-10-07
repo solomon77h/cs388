@@ -1,0 +1,33 @@
+Helana Solomon
+==== PART 1  Simple communication scenarios =====
+
+1. Use symmetric encryption algorithm AES and Diffie-Hellman key exchange procedure.
+First, Alice and Bob use Diffie-Hellman to agree on a shared secret key from which they derive the K which will be used in the AES symmetric encryption algorithm. Then Alice uses the shared key they derived K to encrypt the message using symmetric encryption. Since Eve is only eavesdropping, Eve would not be able to read the encrypted data without finding out what the shared K is.
+
+2. Use cryptographic hash function and 
+Alice uses the cryptographic hash function to generate a digest of the message she wants to send to Bob. Then Alice creates her digital signature by encrypting the hashed message with her private key. She then sends the message concatenated with the signature. Bob receives the message concatenated with the signature and uses Alice's public key to decrypt the signature which should be the hashed message Bob also creates using the message and the public key. This verifies that Alice is the one that sent the message. Now, Bob will know if someone has modified the data because the public key would not be able to decrypt the data anymore. 
+
+3. Use cryptographic has function and public/secret key pairs
+Alice can first create a certificate via a certificate authority that includes her hashed identifying information, her public key, miscellaneous data about dates, and then her signature. The certificate authority can encrypt the hashed data and then sends the certificate back to Alice. Alice then sends the information to Bob where Bob uses the public key to decrypt the certificate and validate the hashed message. 
+
+==== PART 2  Questions about breaking security =====
+
+4. 
+    1. Alice could say that someone has been the man in the middle of our conversation that changed the file. They changed the public key of my certificate.
+        I may or may not believe this claim. This is because the public key is also used to decrypt the signature and the hashed data but if the public key is switched, then it can't decrypt any of Alice's information anymore. The man in the middle must have done something more.
+
+    2. Alice could say that there is a man in the middle who got access to reveal our (Alice and Bob's) private keys to decrypt the data and modify it before sending it to Bob. 
+        I might not believe this claim, only because it would be hard for the man in the middle to compute the private keys unless they know what type of encryption you are using.
+
+    3. Alice could say that there is a man in the middle that found a way to hack the certificate authorities and was able to generate the public key and certificates. They could create fake certificates with new hashes using Alice's signatures. 
+        I might believe this claim because it could be possible for the man in the middle to someone hack the server that creates the certificates and find a way to simultaneously establish a connection with Bob. 
+
+5. Sig_CA = E(S_CA, Hash(D)) where S_CA is the certificate authority's private key and the Hash(D), is the data including Bob's name, Bob's public key, and many dates. So, the public key encryption function is used with the public key on the hashed message. 
+
+6. No, it is not enough information for Alice to believe she's talking to Bob. She must confirm she is talking to Bob by using the public key that is within the browser. Using this public key to decrypt the signature packet and obtain the hash of the data. She also hashes the dataset beforehand and compares the values of the two hashes to make sure they are the same. If they are the same, then Alice can be convinced that Bob has the S_B that goes with P_B in Cert_B.
+
+7. The two ways the certificate-based trust system could be subverted by Mal:
+
+    1. One possible way is that Mal finds a way to change the public key that was used to encrypt the signature. Once the new public key is changed, Mal would have to encrypt Bob's signature with her public key and then send it through the browser so it reaches Alice. 
+
+    2. Another possible way is that Mal could steal the private keys of certificate authorities and create new certificates using Bob's information to send messages to Alice and convince her that Mal is Bob. 
