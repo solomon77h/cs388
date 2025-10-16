@@ -1,0 +1,53 @@
+Helana Solomon
+
+Scenario 2: Your company’s customers’ personal data:
+1. Identify the main ethical question or questions faced by the main character ("you") in the scenario. This will certainly include "what should you do?", but there may be other interesting questions to consider.
+
+    Should I continue working at this company knowing that they may save user’s data?
+    Is there any way that I can still work at this company and convince them to not go on with the plan of profiting off other people’s data?
+    Will the users know their data is actually being saved and not discarded?
+    Who will face the consequences of any lawsuit or action in case a data breach occurs and the information you receive?
+
+2. For each stakeholder (or category of stakeholders) in the scenario, identify the stakeholder's relevant rights.
+
+    (a) Main Character: The main character has the right to have the ability to express their ideas freely in the workplace without facing any repercussions for prioritizing user’s privacy and safety. The main character also has the right to stop any work or project they think may not actually be legal or something they are not comfortable following through with anymore. 
+
+    (b) Users of the application: Since the company is dedicated to protecting the users’ data, the users have the right to data protection. They shouldn't be afraid that their information may be leaked somewhere or to someone. They also have the right to know if their information is being stored and have the choice to actually have their data collected.
+    
+    (c) CEO: The CEO has the right to make decisions about the company and the direction they should follow if they are ethical and legal. CEO’s do have the choice of making un-ethical and illegal decisions but may face the consequences afterwards.
+
+    (d) CTO: They have a moral right to share their opinions and advise the CEO on their new ideas. They also have the moral responsibility to tell the CEO or any higher executive when they are nearing illegal activities. 
+
+    (e) The engineering team: They have their right to agree and disagree with the proposed features and data storing. They also have the ethical right to actually write code that is user centered (focuses on the users’ best interest).
+
+    (f) Investors: The investors have the right to know if any of the legal or critical problems will change. They have the right to have a say in any decisions the company may take because their money/revenue will be impacted by the outcome.
+
+3. List any information missing from the scenario that you would like to have to help you make better choices.
+
+    What are the repercussions for the main character if they do not agree to using the temporarily stored data from their new update to storing it permanently and selling that data?
+
+    Who will be responsible if the data collected gets into the wrong hands?
+
+4. Describe your possible actions, and discuss the likely consequences of those actions.
+    
+    (a) Tell the CFO and CEO directly your stances on your proposed idea and stay firm that you only want to follow your proposed plan for storing user’s location data. The CFO will most likely back you up on your decision because the company’s values and ethics originally centered around protecting users data. The CFO looked worried after the meeting as well so they seem to not agree with the CEO and their new opinions on storing user’s data. The CEO will most likely feel disrespected since he believes this new method can get the company more profit. This could lead to you being removed from the project and for someone else to handle your work if you can’t abide by these new ideas. The CEO has a lot of power to impact your work and maybe even fire you if he finds that you don’t agree with a way that would generate more revenue for the company.
+
+    (b) Another action you can take is leaving the company but also telling Beerz they are not able to use your new feature. This alleviates the fact that your ideas won’t be contributing to and violations of protection of user’s data, but this also won’t stop the company from storing user’s data in other features. You will also be at a disadvantage, you will lose your work and it might take you a while to find another job that shares the same values.
+
+    (c) Another possible action is to do nothing. Instead of involving yourself and worrying about the legal and financial aspects of this new change, continue working on implementing this new feature. Let other people, either the CEO or the CFO handle the discussions involving the legality of storing user’s location data. The consequence of this action is that in the future, if there are any lawsuits or legal actions against Beerz, then you and every other employee is affected by the decision made to store and sell user’s data. This can impact the company and the work financially but also as a developer because other companies may not want to hire someone who was a bystander to illegal activities. 
+
+5. Discuss whether the ACM Code of Ethics and Professional Conduct offers any relevant guidance.
+
+    1.2 Avoid Harm - The idea of collecting user’s location information and selling them intentionally puts the users into harm. Even if you find a way to remove the user associated with that address, if it gets into the wrong hands, anyone can find out who lives there and harm them. So, it is better to avoid the long-term collection and selling of the users information. 
+    
+    1.6 Respect Privacy - In the case where the CEO's opinion does not change, and they are forced to collect and permanently store the data, the company should take proper and more detailed steps and precautions to prevent the re-identification of individuals. In this case, that is extremely difficult because getting access to a user’s address means you can physically find where they live, potentially leading to more problems. 
+
+    3.1 Ensure that the public good is the central concern during all professional computing work - Although the CEO may think highly of the monetary value that selling user’s data may give, it is not the priority. The tools and devices you create should focus on how it can impact the users for good not (completely) about the monetary value it may provide. 
+
+6. Describe and justify your recommended action, as well as your answers to any other questions you presented in part A.
+    
+    My recommended action is to tell the CEO and the CFO about your stance, specifically how you are against the CEO’s idea of profiting off of users’ data. If the CEO continues to push the idea of collecting and selling user’s location information, then I would advise them of the ethical and legal concerns, and ultimately leave the company since it does not affiliate with the main character’s beliefs. I would also recommend that they tell the company and employees that they cannot continue building the new version of the idea the main character proposed, saying they will take any legal action if they do so and collect and sell any user data. This allows the main character to continue working at a company they enjoy until they have reached the breaking point where their moral values contradict their working culture and environment. This also prevents the main character from facing any of the legal consequences the company may face because of their actions.
+
+    I think, legally wise, the companies must disclose that they will be keeping users’ data and what they plan to do with the data. 
+
+    The only way the main character can change the CEO’s mind is by providing legal evidence to why the idea the CEO proposed could ruin the company (even before they make any money). The lawsuits they could face could impact not only the trustworthiness of the Beerz (application) but also impact the innocent employees (and the ones who brought up the idea). They would also have to argue the moral ethic as well, would the CEO be okay with their personal address (without association to them) being sold?
