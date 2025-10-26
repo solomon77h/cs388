@@ -1,0 +1,59 @@
+Helana Solomon
+
+PART 1: COOKIES
+
+
+(a.) There is one cookie for that domain. The name is theme and the value is default - assuming this means it saves the theme as default so when you visit, the theme will stay as default.
+
+(b.) Yes, the cookies did change. For the one cookie that exists, the name is theme and the value is red. 
+
+(c.) I see the same cooke values from the GET REQUEST and the inspector - theme = name and default = value. But, I don't see the GET RESPONSE cookie headers in inspector because it is sent by the server to my computer asking me to store that information. 
+When I first access http://cs338.jeffondich.com/fdf/
+GET REQUEST: Cookie: theme=default
+GET RESPONSE: Set-Cookie: theme=default; Expires=Fri, 23 Jan 2026 19:47:27 GMT
+
+After changing the theme:
+GET REQUEST: Cookie: theme=default
+RESPONSE: Set-Cookie: theme=blue; Expires=Fri, 23 Jan 2026 19:53:01 GMT; Path=/ (changing the current cookie name-value pair we have stored)
+
+
+(d.) After going back to FDF, my blue theme is still selected and shows up on the homepage.
+
+(e.) The current theme is passed through a header in the GET request - Cookie: theme=default. This tells the browser that this is the current theme is the default. 
+
+(f.) First, the client sends the new header through the GET request ->  GET /fdf/?theme=blue HTTP/1.1 - where the new theme is blue. Then after the browser changes the theme, it tells the client in the GET response header - Set-Cookie - that this is the new cookie (cookie for the theme) that should be stored.
+
+ 
+(g.) You could just edit the value for the cookie name you want to change. I was able to change the theme from red to default by right clicking on the value box for the cookies and then clicking "Edit Value."
+
+(h.) Similar to my browser, you can use the inspector tool to change the cooke's value. Otherwise, you can intercept the inital HTTP request that is sent to access the website, and change the theme in the GET header -> GET /fdf/?theme=blue HTTP/1.1. This will update the theme's color without changing the theme on the FDF's theme menu.
+
+(i.)
+For Google Chrome -> C:\Users\my_username\AppData\Local\Google\Chrome\User Data\Default\Network and then in the Network folder there is a file named cookies that has all cookies stored from chrome stored onto this device.
+
+For BurpSuite -> For Burpsuite, the cookies are located somewhere on the virtual machine. I couldn't find any specifc information that mentioned where specifically the information may be located. 
+
+PART 2: Cross-Site Scripting (XSS)
+
+(a) website referenced - https://www.esecurityplanet.com/networks/cross-site-scripting-xss/
+
+Reflected XXS - Attacker injects malicous code into the URL or the get request so it is reflected onto the response from the web server.
+
+Stored XSS - This is when malicous script is written into the actual code of the web application, this affects the client and the server. 
+
+DOM Based XSS - Manipulates and injects malicious script into the data on the client's webpage - their document object model. 
+
+(b)
+1. The user clicks on the post. -> It sends a GET request in the browser to get the information about the post. 
+2. The server then sends a response with the information from the website. In this specific example, the malicious text is within the post but an attacker can also edit the response sent by the server to make sure they recieve the malicous information. 
+Both of the Moriarty's posts were reflected XXS attacks.
+
+(c) An attack that is more virulent than the Mortiary's attack is deleting the user's cookies. The attacker could change the expiration date of the cookie - ultimately deleting it right away or within a few minutes after the cookie was created.
+
+
+(d) Another attack that is more virulent than the Moritary's attack is doing a DOM-based xss attack by redirecting the user to another website when the click on the post. This new website could be malicous or just to prank the user. 
+
+
+(e) 
+1. Perform vulnerability scans on all your infrastructure. Although this is not a specific thing the server or browser can do it can still be helpful to prevent the same attacks that are happening again. 
+2. The server and browser should encode all the information sent to each other. This is so no evesdropper or man in the middle can modify any information being sent to and from the server. 
