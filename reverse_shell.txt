@@ -8,13 +8,28 @@ Helana Solomon
 
 === PART 2 ===
 
-a. The directory the danger website is located in is index.php.
+a. 
+Previus Answer[The directory the danger website is located in is index.php.]
+New Answer[I used the pwd command to find the current working directory and found that the danger website is located in the www directory.]
 
-b. There are about 11 different user accounts on danger.jeffondich.com. I was able to figure it out by sending the ls command through the php file I created previously. Since all the account names are student's usernames, I don't know if it would be okay to list out all of the student's names.
+b. 
+Previous Answer[There are about 11 different user accounts on danger.jeffondich.com. I was able to figure it out by sending the ls command through the php file I created previously. Since all the account names are student's usernames, I don't know if it would be okay to list out all of the student's names.]
 
-c. No, I don't have access to /etc/passwd. It says this site can't be reached. This(/etc/passwd) is a plain text file that stores essential information required to login. It contains a list of information for all user accounts on the system. It includes some details such as userID, groupID, homedirectory and default shell.
+New Answer after meeting with Jeff in Office Hours[There usernames of those who are normal login users are bullwinkle and jeff. I used the command ls /home to find the usernames. There is a way find more specialized users using cat /etc/passwd because this provides the password information for specified users.]
 
-d. No, I don't have access to /etc/shadow. It gives me a 404 not found message. This file (/etc/shadow) stores the hashed passphrase format for a linux user's account and other properties related to the user password. The file is directly accessible only by the root user.
+c. 
+Previous Answer [No, I don't have access to /etc/passwd. It says this site can't be reached.] 
+
+New Answer[Yes I have access to /etc/passwd. I used the command cat /etc/passwd to list all the username and password information.]
+
+This(/etc/passwd) is a plain text file that stores essential information required to login. It contains a list of information for all user accounts on the system. It includes some details such as userID, groupID, homedirectory and default shell.
+
+d. 
+Previous Answer[No, I don't have access to /etc/shadow. It gives me a 404 not found message. ]
+
+New Answer [No, I don't have access to /etc/shadow. When I also tried cat /etc/shadow, it didn't give me a 404 error, instead the page didn't load anything. It was just blank.]
+
+This file (/etc/shadow) stores the hashed passphrase format for a linux user's account and other properties related to the user password. The file is directly accessible only by the root user.
 
 e. I found two files in the secret folder -> hi_jeff.txt and kindasecret.txt.
 
